@@ -30,6 +30,8 @@ Building structured outputs for LLMs (Gemini, OpenAI, Anthropic) can be tedious.
 
 Whether you're building a simple contact form extractor or a complex multi-agent reasoning engine, Struct gives you the tools to design, iterate, and deploy your data structures with confidence.
 
+---
+
 ### 🟧 Key Features
 
 - 1️⃣ **Visual Schema Builder** - Drag-and-drop interface for nested objects, arrays, and primitive types.
@@ -38,6 +40,8 @@ Whether you're building a simple contact form extractor or a complex multi-agent
 - 4️⃣ **Privacy First** - Your data never leaves your browser. All drafts and history are stored locally.
 - 5️⃣ **Instant Validation** - Get real-time feedback on your schema's validity as you build.
 - 6️⃣ **One-Click Export** - Copy your work as a valid JSON Schema.
+
+---
 
 ### 🟧 Getting Started
 
@@ -57,6 +61,8 @@ Whether you're building a simple contact form extractor or a complex multi-agent
    ```bash
    npm run dev
    ```
+
+---
 
 ### 🎧 Support Server
 <a href="https://discord.gg/W8wTjESM3t"><img src="https://raw.githubusercontent.com/kunalkandepatil/.github/refs/heads/main/assets/discord.svg" alt="support server" /></a>
