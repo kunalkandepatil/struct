@@ -237,7 +237,7 @@ export function Home({ theme, toggleTheme, themeColor, setThemeColor }: HomeProp
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </button>
           <a
-            href="https://github.com"
+            href="https://github.com/kunalkandepatil/struct"
             target="_blank"
             rel="noreferrer"
             style={{
@@ -761,27 +761,63 @@ export function Home({ theme, toggleTheme, themeColor, setThemeColor }: HomeProp
         </div>
       </main>
 
-
       {/* Footer */}
       <footer style={{
-        padding: '60px 40px',
+        padding: '80px 40px 40px',
         borderTop: '1px solid var(--border-color)',
-        backgroundColor: 'transparent',
-        textAlign: 'center',
-        marginTop: 'auto'
+        backgroundColor: theme === 'dark' ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.02)',
+        position: 'relative'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '32px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.9rem', fontWeight: 700, fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.05em' }}>
-            <div style={{ width: 24, height: 24, backgroundColor: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--bg-primary)', fontSize: '0.65rem', borderRadius: '0px' }}>S</div>
-            STRUCT
+        {/* Top Accent Line */}
+        <div style={{ position: 'absolute', top: -1, left: '50%', transform: 'translateX(-50%)', width: '100px', height: '2px', backgroundColor: 'var(--accent-primary)' }} />
+        
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr', gap: '48px', marginBottom: '60px' }}>
+            {/* Brand Column */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '1.1rem', fontWeight: 800, fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.05em', marginBottom: '20px' }}>
+                <div style={{ width: 28, height: 28, backgroundColor: 'var(--accent-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--bg-primary)', fontSize: '0.8rem', borderRadius: '0px' }}>S</div>
+                STRUCT
+              </div>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '300px' }}>
+                The visual IDE for AI data structures. Build complex JSON schemas in seconds, validate instantly, and export to your agent.
+              </p>
+            </div>
+
+            {/* Community Column */}
+            <div>
+              <h4 style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px' }}>COMMUNITY</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <a href="https://discord.gg/W8wTjESM3t" target="_blank" rel="noreferrer" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent-primary)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Discord Server</a>
+                <a href="https://github.com/kunalkandepatil/struct" target="_blank" rel="noreferrer" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent-primary)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>GitHub Repo</a>
+                <a href="https://x.com/kunalkandepatil" target="_blank" rel="noreferrer" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.currentTarget.style.color = 'var(--accent-primary)'} onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>Twitter / X</a>
+              </div>
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: '32px', fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-muted)' }}>
-            <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Twitter</a>
-            <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>GitHub</a>
-            <a href="#" style={{ color: 'inherit', textDecoration: 'none' }}>Discord</a>
-          </div>
-          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            © 2024 Struct. Built for Structured Outputs.
+
+          {/* Bottom Bar */}
+          <div style={{ 
+            paddingTop: '32px', 
+            borderTop: '1px solid var(--border-color)', 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            justifyContent: 'space-between', 
+            alignItems: 'center', 
+            gap: '20px' 
+          }}>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: "'JetBrains Mono', monospace" }}>
+              © 2026 STRUCT. ALL RIGHTS RESERVED.
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                Built by <a href="https://github.com/kunalkandepatil" target="_blank" rel="noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', fontWeight: 600 }}>@kunalkandepatil</a>
+              </div>
+              <div style={{ width: '1px', height: '14px', backgroundColor: 'var(--border-color)' }} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#22c55e' }} />
+                Systems Operational
+              </div>
+            </div>
           </div>
         </div>
       </footer>
