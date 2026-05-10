@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Moon, Sun, Download, Copy, CheckSquare, Plus, Clock, FileJson, Trash2, PanelLeft } from 'lucide-react';
+import { Moon, Sun, Download, Copy, CheckSquare, Plus, FileJson, Trash2, PanelLeft } from 'lucide-react';
 import { Editor } from '../components/Editor';
 import { type Parameter } from '../types';
 
@@ -93,7 +93,6 @@ export function EditorPage({ theme, toggleTheme, themeColor, setThemeColor }: Ed
   };
 
   const [copied, setCopied] = useState(false);
-  const [previewMode, setPreviewMode] = useState<'json' | 'typescript'>('json');
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 1024);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [activeTab, setActiveTab] = useState<'editor' | 'preview'>('editor');
@@ -113,54 +112,6 @@ export function EditorPage({ theme, toggleTheme, themeColor, setThemeColor }: Ed
       <path d="M9 18c-4.51 2-5-2-7-2" />
     </svg>
   );
-
-  const ThemeDropdown = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const activeColor = THEME_COLORS.find(c => c.value === themeColor) || THEME_COLORS[0];
-
-    return (
-      <div style={{ position: 'relative' }}>
-        <button
-          className="form-input"
-          onClick={() => setIsOpen(!isOpen)}
-          style={{
-            display: 'flex', alignItems: 'center', gap: '8px', padding: '0 12px', height: '32px', cursor: 'pointer',
-            backgroundColor: 'transparent', border: '1px solid var(--border-color)', width: 'auto',
-          }}
-        >
-          <div style={{
-            width: '12px', height: '12px',
-            backgroundColor: activeColor.value || (theme === 'light' ? '#000000' : '#ffffff')
-          }} />
-        </button>
-
-        {isOpen && (
-          <div style={{
-            position: 'absolute', top: '100%', right: 0, marginTop: '8px',
-            backgroundColor: 'var(--bg-primary)', border: '1px solid var(--border-color)',
-            display: 'flex', flexDirection: 'row', gap: '8px', padding: '8px', zIndex: 50, boxShadow: '0 10px 40px rgba(0,0,0,0.2)'
-          }}>
-            {THEME_COLORS.map((c) => (
-              <button
-                key={c.name}
-                onClick={() => { setThemeColor(c.value); setIsOpen(false); }}
-                title={c.name}
-                style={{ 
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', 
-                  width: '28px', height: '28px', border: 'none',
-                  backgroundColor: c.value || (theme === 'light' ? '#000000' : '#ffffff'),
-                  cursor: 'pointer', opacity: activeColor.value === c.value ? 1 : 0.6,
-                  transition: 'opacity 0.2s, transform 0.2s'
-                }}
-                onMouseOver={e => e.currentTarget.style.transform = 'scale(1.1)'}
-                onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

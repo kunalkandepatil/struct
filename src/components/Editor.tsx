@@ -44,7 +44,6 @@ export const Editor = ({
   const [aiStatus, setAiStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [aiError, setAiError] = React.useState('');
 
-  const inputBg = theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.04)';
   const panelBg = theme === 'dark' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)';
 
   const handleAIGenerate = async () => {

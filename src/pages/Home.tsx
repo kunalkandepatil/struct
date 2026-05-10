@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Moon, Sun, Sparkles, Terminal, ChevronRight, FileJson, ArrowRight, Loader2, CheckCircle2, MessageSquare, Users, ShieldCheck, Clock, Download } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Moon, Sun, Sparkles, Terminal, ChevronRight, ArrowRight, Loader2, Users, ShieldCheck, Clock, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const THEME_COLORS = [
@@ -137,54 +137,6 @@ export function Home({ theme, toggleTheme, themeColor, setThemeColor }: HomeProp
   );
 
   const activeColor = THEME_COLORS.find(c => c.value === themeColor) || THEME_COLORS[0];
-
-  const ThemeDropdown = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const activeColor = THEME_COLORS.find(c => c.value === themeColor) || THEME_COLORS[0];
-
-    return (
-      <div style={{ position: 'relative' }}>
-        <button
-          className="form-input"
-          onClick={() => setIsOpen(!isOpen)}
-          style={{
-            display: 'flex', alignItems: 'center', gap: '8px', padding: '0 12px', height: '32px', cursor: 'pointer',
-            backgroundColor: 'transparent', border: '1px solid var(--border-color)', width: 'auto',
-          }}
-        >
-          <div style={{
-            width: '12px', height: '12px',
-            backgroundColor: activeColor.value || (theme === 'light' ? '#000000' : '#ffffff')
-          }} />
-        </button>
-
-        {isOpen && (
-          <div style={{
-            position: 'absolute', top: '100%', right: 0, marginTop: '8px',
-            backgroundColor: 'var(--bg-primary)', border: '1px solid var(--border-color)',
-            display: 'flex', flexDirection: 'row', gap: '8px', padding: '8px', zIndex: 50, boxShadow: '0 10px 40px rgba(0,0,0,0.2)'
-          }}>
-            {THEME_COLORS.map((c) => (
-              <button
-                key={c.name}
-                onClick={() => { setThemeColor(c.value); setIsOpen(false); }}
-                title={c.name}
-                style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  width: '28px', height: '28px', border: 'none',
-                  backgroundColor: c.value || (theme === 'light' ? '#000000' : '#ffffff'),
-                  cursor: 'pointer', opacity: activeColor.value === c.value ? 1 : 0.6,
-                  transition: 'opacity 0.2s, transform 0.2s'
-                }}
-                onMouseOver={e => e.currentTarget.style.transform = 'scale(1.1)'}
-                onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  };
 
   return (
     <div

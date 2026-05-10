@@ -58,7 +58,7 @@ function mapToParameters(items: GeneratedParam[], depth = 0): Parameter[] {
 export async function generateSchemaFromDescription(
   description: string,
   apiKey: string,
-  onChunk?: (text: string) => void
+  _onChunk?: (text: string) => void
 ): Promise<{ schemaName: string; parameters: Parameter[] }> {
   const ai = new GoogleGenAI({ apiKey });
 
